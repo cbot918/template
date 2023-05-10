@@ -1,0 +1,5 @@
+server:
+docker run -it --name temp -p 5434:5432 -e POSTGRES_PASSWORD=12345 postgres
+
+client:
+docker run -it --rm postgres psql -h 172.17.0.4 -U postgres -W

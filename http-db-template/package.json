@@ -1,0 +1,24 @@
+{
+  "name": "http-db-template",
+  "version": "1.0.0",
+  "description": "### A Toy Bootstrap Api Template For golang Http and Database",
+  "main": "mongo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbot918/http-db-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbot918/http-db-template/issues"
+  },
+  "homepage": "https://github.com/cbot918/http-db-template#readme",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "mongoose": "^6.0.5"
+  }
+}

@@ -1,0 +1,5 @@
+FROM cbot918/ubugo
+
+WORKDIR /app
+COPY . .
+EXPOSE 5455

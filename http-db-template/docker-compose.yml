@@ -1,0 +1,39 @@
+version: "3.7"
+
+networks:
+  template:
+    driver: bridge
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - template
+    ports:
+      - "5455:5455"
+    depends_on:
+      - postgres
+    entrypoint: go run .
+    restart: always
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=testdb
+    networks:
+      - template
+    ports:
+      - "5434:5432"
+    restart: always
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27019:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 12345
