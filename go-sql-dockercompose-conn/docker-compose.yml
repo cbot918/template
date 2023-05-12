@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres
+    network_mode: bridge
+    environment:
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=testdb
+    ports:
+      - 5432:5432
+  
