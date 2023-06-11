@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Echo</title>
+  </head>
+  <body>
+    <input id="msg" type="text" />
+    <button id="echo">Echo</button>
+    <button id="close">Close</button>
+    <ul id="area"></ul>
+    <script>
+     var area = document.getElementById("area");
+     var msg = document.getElementById("msg");
+     var ws = new WebSocket("ws://localhost:8080/echo");
+     ws.onopen = function(event) {
+       console.log(event);
+     };
+     ws.onclose = function(event) {
+       console.log(event);
+     };
+     ws.onmessage = function(event) {
+       console.log(event);
+       var entry = document.createElement("li");
+       entry.textContent = event.data;
+       area.appendChild(entry);
+     }
+     ws.onerror = function(event) {
+       console.log(event);
+     }
+     document.getElementById("echo").onclick = function() {
+       ws.send(msg.value);
+     };
+     document.getElementById("close").onclick = function() {
+       ws.close();
+     };
+    </script>
+  </body>
+</html>
