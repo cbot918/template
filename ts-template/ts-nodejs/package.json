@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "build":"tsc",
+    "watch":"tsc helloworld.ts --watch",
+    "run":"node build/app.js"
+  }
+}
