@@ -1,5 +1,7 @@
+import Hello from "./components/Hello.js"
+
 window.onload = ()=>{
- initApp("app", "hello ") 
+ initApp("app", Hello())
 }
 
 const initApp = (root, message)=>{
