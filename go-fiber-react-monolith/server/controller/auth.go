@@ -1,27 +1,22 @@
 package controller
 
 import (
-	"fmt"
-	"strings"
-
 	"encoding/json"
+	"fmt"
 	"regexp"
+	"strings"
 
 	"github.com/cbot918/liby/jwty"
 	"github.com/gofiber/fiber/v2"
 )
 
-type Controller struct{}
+type Auth struct{}
 
-func New() *Controller {
-	return &Controller{}
+func NewAuth() *Auth {
+	return &Auth{}
 }
 
-func (ctlr *Controller) Ping(c *fiber.Ctx) error {
-	return c.SendString("pong")
-}
-
-func (ctlr *Controller) Auth(c *fiber.Ctx) error {
+func (a *Auth) Signin(c *fiber.Ctx) error {
 
 	user := struct {
 		Id       int    `json:"id"`
@@ -29,11 +24,14 @@ func (ctlr *Controller) Auth(c *fiber.Ctx) error {
 		Password string `json:"password"`
 	}{}
 	if err := c.BodyParser(&user); err != nil {
+		fmt.Println("err via bodyparser")
 		panic(err)
 	}
 
+	// jwt process
 	token, err := jwty.New().FastJwt(int(user.Id), user.Email)
 	if err != nil {
+		fmt.Println("err call FastJwt")
 		panic(err)
 	}
 
@@ -41,13 +39,15 @@ func (ctlr *Controller) Auth(c *fiber.Ctx) error {
 		Token string `json:"token"`
 		User  string `json:"user"`
 	}{}
+
 	res.Token = token
 	res.User = strings.Trim(regexp.MustCompile(".*@").FindString(user.Email), "@")
-	fmt.Printf("user: %s", res.User)
+
 	resp, err := json.Marshal(res)
 	if err != nil {
-		panic(err)
+		fmt.Println("err via json Marshal")
 	}
 
 	return c.SendString(string(resp))
+
 }

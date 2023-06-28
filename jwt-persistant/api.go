@@ -7,17 +7,19 @@ import (
 )
 
 const (
-	PORT=":3500"
+	PORT = ":3500"
 )
 
-func main(){
+func main() {
 	api := fiber.New()
 
 	api.Use(cors.New())
 
+	api.Static("/", "./ui/dist")
+
 	c := controller.New()
-	api.Get("/ping",c.Ping)
-	api.Post("/auth",c.Auth)
-	
+	api.Get("/ping", c.Ping)
+	api.Post("/auth", c.Auth)
+
 	api.Listen(PORT)
 }
