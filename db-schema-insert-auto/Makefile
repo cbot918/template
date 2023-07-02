@@ -1,5 +1,7 @@
 CONTAINER_NAME=temp-postgres
 DB_NAME=testbulk
+DB_PORT=5433
+DB_PASSWORD=12345
 
 # public
 ## run app
@@ -20,7 +22,7 @@ psql:
 notice:
 	echo -e '遇到docker執行權限問題的話可能要設置 docker group\n\n sudo groupadd docker\n sudo usermod -aG docker $$USER \n newgrp docker \n'
 db:
-	docker run --name $(CONTAINER_NAME) -p 5433:5432 -e PGPASSWORD=12345 -e POSTGRES_PASSWORD=12345 -e POSTGRES_DB=$(DB_NAME) -d postgres
+	docker run --name $(CONTAINER_NAME) -p $(DB_PORT):5432 -e PGPASSWORD=$(DB_PASSWORD) -e POSTGRES_PASSWORD=$(DB_PASSWORD) -e POSTGRES_DB=$(DB_NAME) -d postgres
 
 schema:
 	docker run -it --rm --network bridge postgres \
