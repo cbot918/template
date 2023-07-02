@@ -44,5 +44,6 @@ func (ctr *Controller) Health(c *gin.Context) {
 }
 
 func (ctr *Controller) HandleUserData(c *gin.Context) {
+
 	log(c.Params.Get("id"))
 }
