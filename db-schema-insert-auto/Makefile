@@ -30,5 +30,37 @@ rmdb:
 	docker stop $(CONTAINER_NAME) 
 	docker container rm $(CONTAINER_NAME) 
 
-.PHONY: db psql schema rmdb run select 
-.SILENT: db psql schema rmdb run select
+pre-check:
+	@echo "Checking go install needed"
+	@if [ $(shell which gggg 2>/dev/null || echo FALSE) = "FALSE" ]; then \
+		read -p " 跑程式需要go但您目前沒裝 > 要幫你/妳裝嗎? (Y/y): " uinput; \
+		if [ "$$uinput" = "" ] || [ "$$uinput" = "Y" ] || [ "$$uinput" = "y" ]; then \
+			echo "go installing"; \
+		else \
+			echo '\n  > run code after go/docker installed\n'; exit 1; \
+		fi; \
+	fi
+	
+	@echo "\nChecking docker install needed"
+	@if [ $(shell which rrrr 2>/dev/null || echo FALSE) = "FALSE" ]; then \
+		read -p " 跑程式需要docker但您目前沒裝 > 要幫你/妳裝嗎? (Y/y): " uinput; \
+		if [ "$$uinput" = "" ] || [ "$$uinput" = "Y" ] || [ "$$uinput" = "y" ]; then \
+			echo "docker installing"; \
+		else \
+			echo '\n  > run code after go/docker installed\n'; exit 1; \
+		fi; \
+	fi
+
+	@echo "\nChecking for docker group "
+	@if [ $(shell cat /etc/group | grep docker) ]; then \
+		echo " 有docker group了";\
+	else \
+		echo "setup docker group"; \
+	fi
+
+	echo -e '    東西都有,可以跑啦 \n'
+	echo -e '    小提示, Password: 是指資料庫密碼預設 12345 \n'
+	echo -e '    以下開始自動執行 \n'
+
+.PHONY: db psql schema rmdb run select pre-check
+.SILENT: db psql schema rmdb run select pre-check
