@@ -1,0 +1,8 @@
+[
+  {"type":"file","name":"Makefile"},
+  {"type":"file","name":"gitlab-ci.yml"},
+  {"type":"file","name":".gitignore"},
+  {"type":"folder","name":"cmd"},
+  {"type":"folder","name":"configs"},
+  {"type":"folder","name":"src"}
+]
