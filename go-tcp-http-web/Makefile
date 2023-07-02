@@ -4,7 +4,7 @@ run:
 watch:
 	gowatch
 
-tcpclient:
+client:
 	go run cmd/tcpclient/tcpclient.go
 
 .PHONY: run

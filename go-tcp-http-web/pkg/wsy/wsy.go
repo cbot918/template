@@ -28,18 +28,7 @@ func (w *Wsy) Run() string {
 		conn, err := w.listener.Accept()
 		u.Checke(err, "listener accept error")
 
-		go func(conn net.Conn) {
-			defer conn.Close()
-			buf := make([]byte, 4096)
-			_, err := conn.Read(buf)
-			if err != nil {
-				log("conn read failed")
-				panic(err)
-			}
-			log(string(buf))
-		}(conn)
-
-		// go w.HandleWs(conn)
+		go w.HandleWs(conn)
 	}
 }
 
@@ -62,4 +51,14 @@ func (w *Wsy) HandleWs(conn net.Conn) {
 	var Reset = "\033[0m"
 	fmt.Printf("\nclient: %s%s%s\n", Green, string(message), Reset)
 
+	_, err = ch.Conn.Write([]byte("hihihi"))
+	if err != nil {
+		log("ws server write message failed")
+		panic(err)
+	}
+
+	// res = ch.ReadSocket() // 寫死: 預設web會發一個message過來
+	// fmt.Printf("[*] receved message\n\n")
+	// message = ch.DecodeFrame(res) // 根據Spec解碼Frame把message取出來
+	// fmt.Printf("\nclient: %s%s%s\n", Green, string(message), Reset)
 }
