@@ -1,3 +1,14 @@
+# Bulk User to DB
+this is a project for research/practice
+- makefile script
+- automation something
+- postgres cli with make and docker
+
+# what's inside main.go
+its a tool for batch copy data into postgres db
+it will download a dataset from IMDB, then copy to db table
+the dataset content 12M rows
+
 # run
 run 
 ```bash
