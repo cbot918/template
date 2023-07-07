@@ -1,0 +1,6 @@
+github.com/cbot918/liby v1.1.9 h1:zs9EnSVWm5C0Fje6d52vZrcDmbgDziglWodOoJ98adc=
+github.com/cbot918/liby v1.1.9/go.mod h1:pPBUzSUhSIzOnPLWVQw7xwRHF1sm21fkPiWdnvsD2Kg=
+github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
+github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+golang.org/x/net v0.12.0 h1:cfawfvKITfUsFCeJIHJrbSxpeu/E81khclypR0GVT50=
+golang.org/x/net v0.12.0/go.mod h1:zEVYFnQC7m/vmpQFELhcD1EWkZlX69l4oqgmer6hfKA=
