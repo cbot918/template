@@ -1,4 +1,4 @@
-module go-middleware
+module loggin
 
 go 1.19
 
