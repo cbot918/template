@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 var lg = fmt.Println
@@ -15,17 +17,19 @@ func main() {
 	svc = NewAuthService(svc)
 	svc.Ping()
 
-	router := http.NewServeMux()
+	// router := http.NewServeMux()
 
-	router.HandleFunc("/ping/kk", func(w http.ResponseWriter, r *http.Request) {
+	r := mux.NewRouter()
+
+	r.HandleFunc("/ping/kk", func(w http.ResponseWriter, r *http.Request) {
 		lg("kk")
 	})
 
-	router.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
+	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
 		lg("pong")
 	})
 
-	handler := AuthMiddleware(router)
+	handler := AuthMiddleware(r)
 
 	log.Fatal(http.ListenAndServe(":12345", handler))
 }
