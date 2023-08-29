@@ -1,0 +1,14 @@
+{
+  "_id": { "$oid": "60cca0236684bf1e5c6f0686" },
+  "pic": "https://res.cloudinary.com/yalecloud/image/upload/v1623929382/noimage_jlfaqb.jpg",
+  "followers": [
+    { "$oid": "60e2ad5da6d3660022f035e9" },
+    { "$oid": "60e2ad5da6d3660022f035e9" },
+    { "$oid": "60e2ad5da6d3660022f035e9" }
+  ],
+  "following": [],
+  "email": "yale91811@gmail.com",
+  "password": "$2a$12$fNPHTHHHs8PTL0nxwW9S7OTjl2VfX7lYfj8ZZW38jb7md./jEPHuu",
+  "name": "yale91811",
+  "__v": 0
+}

@@ -5,8 +5,6 @@ import (
 
 	"github.com/cbot918/go-fiber-serve-react-spa/rest"
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/gofiber/fiber/v2/middleware/recover"
 )
 
 func main() {

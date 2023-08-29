@@ -1,0 +1,13 @@
+type PingRequest {}
+type PingResponse {
+	Message string `json:"message"`
+}
+
+@server(
+	group:health
+)
+
+service health-api{
+	@handler HealthHandler
+	get /ping/db(PingRequest) returns (PingResponse)
+}

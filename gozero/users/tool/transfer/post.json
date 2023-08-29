@@ -1,0 +1,18 @@
+{
+  "_id": { "$oid": "60ccb0568e68901844d09293" },
+  "likes": [{ "$oid": "60f5101eeeb73700225b2656" }],
+  "title": "1",
+  "body": "牛嘎糖",
+  "photo": "http://res.cloudinary.com/yalecloud/image/upload/v1624027221/efd6dqakbgswqlyzrukv.jpg",
+  "postedBy": { "$oid": "60ccae67fcd2c7329ca396c0" },
+  "comments": [
+    {
+      "_id": { "$oid": "60e2a66da6d3660022f035e8" },
+      "text": "test",
+      "postedBy": { "$oid": "60e2a5e5a6d3660022f035e7" }
+    }
+  ],
+  "createdAt": { "$date": "2021-06-18T14:40:22.76Z" },
+  "updatedAt": { "$date": "2021-07-19T05:52:31.94Z" },
+  "__v": 0
+}

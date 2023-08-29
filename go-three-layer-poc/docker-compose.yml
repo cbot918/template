@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    container_name: fso
+    network_mode: bridge
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=fso
+    ports:
+      - "3306:3306"
+    restart: always
+
+    

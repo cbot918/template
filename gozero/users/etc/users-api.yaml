@@ -1,0 +1,6 @@
+Name: users-api
+Host: 0.0.0.0
+Port: 8888
+
+DB:
+  DB_URL: "root:12345@tcp(localhost:3306)/gozero"

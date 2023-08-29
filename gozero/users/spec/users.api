@@ -1,0 +1,27 @@
+type Request {
+	Id int `path:"id"`
+}
+
+type Response {
+	Message string `json:"message"`
+}
+
+type UserGetRequest {
+	Name string `json:"name"`
+}
+
+type UserGetResponse {
+	Name  string `json:"name"`
+	Email string `json:"email"`
+}
+
+@server(
+	group:user
+)
+
+service users-api {
+	@handler UsersHandler
+	get /from/:id(Request) returns (Response)
+	@handler UserGet
+	post /user(UserGetRequest) returns (UserGetResponse)
+}

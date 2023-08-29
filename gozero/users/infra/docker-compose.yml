@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  db:
+    image: mysql
+    container_name: users
+    network_mode: bridge
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=users
+    ports:
+      - "3308:3306"
+    restart: always
+  # db:
+  #   image: postgres:12
+  #   container_name: users
+  #   network_mode: bridge
+  #   environment:
+  #     - POSTGRES_PASSWORD=12345
+  #     - POSTGRES_DB=users
+  #   ports:
+  #     - "5435:5432"
+    
