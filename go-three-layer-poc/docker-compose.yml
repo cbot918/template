@@ -9,7 +9,7 @@ services:
       - MYSQL_ROOT_PASSWORD=12345
       - MYSQL_DATABASE=fso
     ports:
-      - "3306:3306"
+      - "3307:3306"
     restart: always
 
     

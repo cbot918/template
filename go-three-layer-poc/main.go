@@ -8,8 +8,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-const port = ":8081"
-
 func main() {
 
 	cfg, err := i.NewConfig()
@@ -25,5 +23,5 @@ func main() {
 	f := fiber.New()
 	api := i.NewAPI(cfg, f, db)
 
-	log.Fatal(api.App.Listen(port))
+	log.Fatal(api.App.Listen(cfg.PORT))
 }

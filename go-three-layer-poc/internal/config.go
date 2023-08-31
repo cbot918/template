@@ -9,6 +9,7 @@ import (
 type Config struct {
 	DB_TYPE string
 	DB_URL  string
+	PORT    string
 }
 
 func NewConfig() (*Config, error) {
@@ -20,6 +21,7 @@ func NewConfig() (*Config, error) {
 	return &Config{
 		DB_TYPE: os.Getenv("DB_TYPE"),
 		DB_URL:  os.Getenv("DB_URL"),
+		PORT:    os.Getenv("PORT"),
 	}, nil
 }
 
